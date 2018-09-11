@@ -2,10 +2,6 @@ from time import sleep
 from os import system, listdir, path, sys
 from datetime import datetime
 
-from colorama import Fore, Style
-
-from cfg import LOG
-
 
 def mkdir_name(url,*flag):
     dir_name = url.rsplit('/', 2)[1]
@@ -19,6 +15,7 @@ def mkdir_name(url,*flag):
             return dir_name
     else:
         return dir_name
+
 def mk_fname(url, ftype, *flag):
     fname = ur l.rsplit(flag)[0].rsplit('/', 1)[1]
     if ftype not in fname:
@@ -42,9 +39,9 @@ def alert(alarm, x):
     return
 
 def check_dir(child, parent):
-    file_dest  =  parent + child
+    file_dest  =  paren t + child
     if child[:-1] not in listdir(parent):
-        command  = 'mkdir ' + file_dest
+        command  = 'm kdir ' + file_dest
         system(command)
         print(command)
         log_it(command)
@@ -92,3 +89,31 @@ def ship_it(dest_login,src_dir,dest_dir):
         remove_it(src_dir)
     except:
         print('problem shipping files to',dest_login )
+
+def live_download(server, destination):
+    if path:
+        command = 'curl ' + server + ' --max-time 2400 -o ' + destination
+        #test_command = 'touch '+ destination
+    else:
+        return
+    print(Fore.MAGENTA + command+Style.RESET_ALL)
+    log_it(command)
+    system(command)
+    check_download(destination)
+    msg = 'success senpai... '+destination+" downloaded"
+    print(Fore.BLUE +msg+Style.RESET_ALL)
+    log_it(msg)
+        
+def check_download(d_file):
+    d_size = path.getsize(d_file)/(2**20)
+    status = ''
+    if d_size > 200:
+        status = status +  "download met size requirement"
+        print(status)
+        log_it(status)
+        return True
+    else:
+        status = status +  "download possibly incomplete"
+        print(status)
+        log_it(status)
+

@@ -12,6 +12,9 @@ setuptools.setup(
     long_description = long_description,
     long_description_content_type = 'text/markdown',
     url = 'https://github.com/deadlift1226/easy_utils.git',
+    install_requires = [
+        'colorama'
+        ]
     packages = setuptools.find_packages(),
     classifiers = [
         'Programming Language :: Python :: 3',
