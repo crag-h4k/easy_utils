@@ -57,9 +57,6 @@ def check_file(fname, file_dest):
 
 def log_it(text):
     fname = './log/'+str(datetime.today()).rsplit(' ',1)[0]+'.log'
-    exc_type, exc_obj, exc_tb = sys.exc_info()
-    fname = path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-    text = str(text) +'\n'+ str(exc_obj) + str(exc_type) + ' ' + str(exc_tb.tb_lineno)
     text = str(text)
     with open(fname, 'a+') as f:
         f.write(str(datetime.now())[:-7]+'\t'+text+'\n')
