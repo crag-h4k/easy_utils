@@ -5,16 +5,14 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name = 'easy_utils',
-    version = '0.0.1',
+    version = '0.0.3',
     author = 'Dane Morgan',
     author_email = 'danemorgan91@gmail.com',
-    description = 'Easy to use utilities, like logging, downloading, uploading, and file checking',
+    description = 'Easy to use utilities:  alerts, logging, running background processes, file and directory checking',
     long_description = long_description,
     long_description_content_type = 'text/markdown',
     url = 'https://github.com/deadlift1226/easy_utils.git',
-    install_requires = [
-        'colorama'
-        ]
+    install_requires = 'colorama',
     packages = setuptools.find_packages(),
     classifiers = [
         'Programming Language :: Python :: 3',
