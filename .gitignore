@@ -1,4 +1,5 @@
 easy_utils.egg-info/*
+easy_utils/__pycache__
 build/*
 dist/*
 *.pyc
