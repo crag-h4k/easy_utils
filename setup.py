@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name = 'easy_utils',
-    version = '0.0.5',
+    version = '0.0.6',
     author = 'Dane Morgan',
     author_email = 'danemorgan91@gmail.com',
     description = 'Easy to use utilities:  alerts, logging, running background processes, file and directory checking',
