@@ -2,10 +2,11 @@ from time import sleep
 from os import system, listdir, path, sys
 from datetime import datetime
 from subprocess import Popen, DEVNULL, check_output
+from colorama import Fore, Style 
 
 def alert(alarm, x):
     for i in range(x):
-        print(Fore.YELLOW + alarm+Style.RESET_ALL)
+        print(Fore.YELLOW + alarm + Style.RESET_ALL)
         sleep(1)
     return
 
