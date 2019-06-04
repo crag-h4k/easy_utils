@@ -3,6 +3,18 @@ from os import system, listdir, path, sys
 from datetime import datetime
 from subprocess import Popen, DEVNULL, check_output
 from colorama import Fore, Style 
+from re import sub
+
+def make_fname(fname, ftype):
+    ts = str(datetime.today())
+    print(ts)
+    _ts = ts.split('.')[0]
+    __ts = sub(r'[^\w\s]','-',_ts)
+    #__ts = _ts.translate(str.maketrans('', '', punctuation)).replace(' ', '')
+    full_fname = ''.join(['./raw/', '-'.join([fname, __ts]), '.', ftype])
+    return full_fname.replace(' ', '-')
+
+
 
 def alert(alarm, x):
     for i in range(x):
@@ -20,7 +32,7 @@ def check_dir(child, parent):
     else:
         return file_dest
 
-def check_file(fname, file_dest):
+def check_for_file(fname, file_dest):
     if fname not in listdir(file_dest):
         return file_dest +fname
     else:
